@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BullyBlocker</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style type="text/css">
+        body, html{
+    margin:0;
+    padding:0;
+}
+body{
+  overflow-x: hidden;
+  background-image: url('/static/bg-video.mp4');
+}
+::-webkit-scrollbar{
+    width:15px;
+}
+::-webkit-scrollbar-track{
+    background: darkslategrey;
+}
+::-webkit-scrollbar-thumb{
+    background: yellow;
+}
+.navbar{
+    height:300px;
+    width:1350px;
+    display:flex;
+}
+.logo-img{
+  z-index:1000;
+}
+.settings-link{
+    position:absolute;
+    left:1280px;
+    top:30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.settings-link svg, .settings-link i {
+    transition: color 0.2s, fill 0.2s;
+}
+.settings-link:hover svg, .settings-link:hover i {
+    color: yellow !important;
+    fill: yellow !important;
+}
+.title{
+    position:relative;
+    left:25%;
+    top:0px;
+    width: 100%;
+    font-family:'Monaco', sans-serif;
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity:0.8;
+    text-shadow:
+        -4px -4px 0 #000,
+         4px -4px 0 #000,
+        -4px  4px 0 #000,
+         4px  4px 0 #000;
+    animation:
+        typing 2s steps(12);
+}
+@keyframes typing{
+    from{width:0;}
+    to{width:100%;}
+}
+.subtitle{
+  font-size: 1.5rem;
+  font-family: 'Monaco', sans-serif;
+  font-style:italic;
+  color: yellow;
+  position: relative;
+  top: -80px;
+  left:120px;
+  animation: fadeouta 2s ease-out;
+}
+@keyframes fadeouta {
+  0% { opacity: 0; }
+  10% { opacity: 0.1; }
+  20%{ opacity: 0.2; }
+  30% { opacity: 0.3; }
+  40% { opacity: 0.4; }
+  50% { opacity: 0.5; }
+  60% { opacity: 0.6; }
+  70% { opacity: 0.7; }
+  80% { opacity: 0.8; }
+  90% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+.container{
+    width:1350px;
+    height:px;
+    justify-content:center;
+}
+.message-box-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.message-box {
+  width: 95%;
+  height: 25px;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+  background-color: #F5F5F5;
+  color: #000000;
+  outline: none;
+  resize: none;
+  position: relative;
+  overflow:visible;
+  z-index:2;
+}
+
+.message-box-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  background: linear-gradient(270deg, navy, yellow, yellow, navy);
+  background-size: 600% 600%;
+  animation: borderAnimation 2.5s linear infinite;
+  z-index:1;
+}
+
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.upload-btn {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #0B1F3A; 
+}
+.upload-btn:hover {
+  color: #E50914; 
+}
+.footer{
+  background-color: black; 
+  width:1350px;
+  height:100px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.footer-text {
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+}
+.sidepanel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  z-index: 2000;
+  transition: right 0.3s cubic-bezier(.4,0,.2,1);
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px 20px 20px;
+}
+.sidepanel.open {
+  right: 0;
+}
+.sidepanel .close-sidepanel {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #0B1F3A;
+  cursor: pointer;
+}
+.sidepanel-content {
+  margin-top: 40px;
+  color: #0B1F3A;
+}
+.sidepanel-toggle{
+  position: relative;
+  top:30px;
+  left:250px;
+}
+.sidepanel-toggle i:hover {
+  color: yellow !important;
+  cursor: pointer;
+}
+.result{
+  background-color: rgba(255, 255, 255, 0.25);
+  width:700px;
+  height:220px;
+  position:relative;
+  left:320px;
+  top:20px;
+  border-radius: 30px;
+  color:white;
+  text-align: center;
+}
+.back{
+  position: absolute;
+  right:0;
+  bottom:0;
+  z-index: -1;
+  height:100%;
+}
+@media (min-aspect-ratio: 16/9) {
+  .back{
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .back{
+    width: auto;
+    height: 100%;
+  }
+}
+.result-text {
+  font-size: 40px;
+  font-weight: bold;
+  color: white; /* golden yellow */
+  font-family: 'Courier New', monospace;
+  text-shadow: 1px 1px 3px #000;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+    </style>
+    <link rel="stylesheet" 
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity=
+"sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+             crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <video autoplay muted loop plays-inline class="back">
+    <source src="/static/bg-video.mp4" type="video/mp4">
+    </video>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="/static/logo.png" alt="BullyBlocker Logo" class="logo-img" 
+            width="200px" height="110px">
+        </div>
+    <div class="navbar-center"><p class="title">BullyBlocker
+    </p><br>
+    <p class="subtitle">Revolutionalizing online messaging with AI message detection</p>
+    </div>
+    <div class="settings">
+    
+    
+    </nav>
+    <div class="container">
+        <div class="message-box-wrapper">
+  <textarea class="message-box" id="messageInput" placeholder="Enter your message here...">
+  </textarea>
+   <button class="upload-btn" id="send-button" onclick="sendMessage()"style="z-index:3;">
+    <i class="fa-solid fa-paper-plane"></i>
+   </button>
+        </div>
+    <div  id="resultBox" class="result" style="display: none;"></div>
+    </div>
+     </div>
+        
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const sidepanelToggle = document.querySelector('.sidepanel-toggle');
+    const sidepanel = document.getElementById('sidepanel');
+    const closeBtn = document.querySelector('.close-sidepanel');
+    if (sidepanelToggle && sidepanel) {
+        sidepanelToggle.addEventListener('click', () => {
+            sidepanel.classList.add('open');
+        });
+    }
+    if (closeBtn && sidepanel) {
+        closeBtn.addEventListener('click', () => {
+            sidepanel.classList.remove('open');
+        });
+    }
+    document.addEventListener('click', (e) => {
+        if (
+            sidepanel.classList.contains('open') &&
+            !sidepanel.contains(e.target) &&
+            !sidepanelToggle.contains(e.target)
+        ) {
+            sidepanel.classList.remove('open');
+        }
+    });
+    const resultBox = document.querySelector('.result');
+    if (resultBox) {
+        resultBox.style.display = 'none';
+    }
+    const uploadBtn = document.querySelector('.upload-btn');
+    if (uploadBtn && resultBox) {
+        uploadBtn.addEventListener('click', function() {
+            resultBox.style.display = 'block';
+        });
+    }
+});
+</script>
+<script>
+  async function sendMessage() {
+  const message = document.getElementById("messageInput").value;
+
+  const response = await fetch("http://127.0.0.1:8000/predict", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ message })
+  });
+
+  const data = await response.json();
+  const resultBox = document.getElementById("resultBox");
+
+  resultBox.innerHTML = `
+    <div style="font-size: 20px; font-weight: bold;">Tag:</div>
+    <div style="font-size: 18px; color: yellow; margin-bottom: 10px;">${data.tag}</div>
+    <div style="font-size: 20px; font-weight: bold;">Response:</div>
+    <div style="font-size: 18px; color: white;">${data.response}</div>
+  `;
+
+  
+}
+
+  document.getElementById("messageInput").addEventListener("keydown", function (event) {
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault(); // Prevent newline
+    sendMessage();
+    document.getElementById("resultBox").style.display = "block"; // Show result box
+  }
+});
+</script>
+<script scr="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+    "intents": [
+        {
+            "tag": "Insult",
+            "patterns": [
+                "You are so stupid", "You're an idiot", "I hate you", "You're worthless", "Shut up, loser",
+                "You're dumb", "No one likes you", "You're so annoying", "You're a moron", "Idiot",
+                "You're pathetic", "You're a joke", "You can't do anything right", "You're useless", "You suck",
+                "You're a failure", "You're so slow", "You're so lame", "You're the worst", "You're hopeless",
+                "You're a clown", "You have no idea", "You make no sense", "You're so boring", "You're so fake",
+                "You're a disaster", "You're a mess", "You're a fool", "You're so weak", "You're so bad"
+            ],
+            "responses": [
+                "Let's keep the conversation respectful.",
+                "Please avoid using insults.",
+                "I'm here to help, not to argue.",
+                "Repeated insults may be considered harassment under Section 504 IPC (Intentional insult with intent to provoke breach of the peace) and could be legally actionable."
+            ]
+        },
+        {
+            "tag": "Threat",
+            "patterns": [
+                "I'm going to hurt you", "Watch your back", "I'll make you pay", "You're dead meat", "I'll find you",
+                "I will kill you.", "You're finished", "You're done for", "You better watch out", "I'll destroy you",
+                "You're not safe", "I'll get you", "You won't get away with this", "This isn't over", "I'll ruin you",
+                "You're going down", "I'll hunt you", "You're in trouble", "I'll crush you", "You won't last",
+                "I'll make you suffer", "I'll break you", "I'll end you", "You're on my list", "I'll track you down",
+                "You should be scared", "You messed with the wrong person", "I'll take you out", "I'll deal with you", "You're finished here"
+            ],
+            "responses": [
+                "Threatening language is not tolerated.",
+                "Please refrain from making threats.",
+                "Let's keep this conversation safe and respectful.",
+                "Issuing threats is illegal under Section 503 of the Indian Penal Code (IPC) and may result in criminal prosecution."
+            ]
+        },
+        {
+            "tag": "Harassment",
+            "patterns": [
+                "You're so annoying", "Leave me alone, stupid", "Nobody likes you", "You're pathetic", "Stop bothering me",
+                "You're a pest", "You're a nuisance", "Just go away", "You're such a bother", "Stop talking to me",
+                "You're always in the way", "I can't stand you", "You're so clingy", "You're so needy", "You're so pushy",
+                "You're always here", "Why don't you leave", "You're so irritating", "You're so frustrating", "You're always bothering me",
+                "You're so persistent", "You're always around", "You never stop", "You're so tiresome", "You're so exhausting",
+                "You're always nagging", "You're so overbearing", "You're so intrusive", "You're so nosy", "You're so loud"
+            ],
+            "responses": [
+                "Harassment is not acceptable here.",
+                "Please be respectful to others.",
+                "Let's focus on positive communication.",
+                "Harassment, including repeated unwanted messages, is punishable under Section 354D IPC (stalking and harassment) and the Information Technology Act."
+            ]
+        },
+        {
+            "tag": "Hate Speech",
+            "patterns": [
+                "I hate [group]", "All [group] are bad", "Kill all [group]", "They don't belong here", "[Group] should be banned",
+                "[Group] are the worst", "I can't stand [group]", "[Group] are evil", "No one likes [group]", "[Group] are disgusting",
+                "[Group] are not welcome", "[Group] ruin everything", "[Group] are a problem", "[Group] should leave", "[Group] are inferior",
+                "[Group] are a plague", "[Group] are criminals", "[Group] are dangerous", "[Group] are stupid", "[Group] are ugly",
+                "[Group] are a disease", "[Group] are a threat", "[Group] don't deserve rights", "[Group] should be punished", "[Group] are not human",
+                "[Group] are garbage", "[Group] should be eliminated", "[Group] are scum", "[Group] are filth", "[Group] are animals"
+            ],
+            "responses": [
+                "Hate speech is not allowed.",
+                "Let's promote understanding and respect.",
+                "Please avoid discriminatory language.",
+                "Hate speech and incitement to violence are criminal offenses under Sections 153A and 295A of the IPC, and can lead to prosecution."
+            ]
+        },
+        {
+            "tag": "Spam",
+            "patterns": [
+                "Buy cheap stuff here", "Click this link now", "Visit my website for free gifts", "You won a prize", "Subscribe to my channel",
+                "Get rich quick", "Limited offer, act now", "Earn money fast", "Don't miss out", "Exclusive deal for you",
+                "Win big today", "Claim your reward", "Special discount just for you", "Hurry, offer ends soon", "Buy now and save",
+                "Check out this amazing deal", "Free trial available", "Sign up for free", "Join us today", "Click here for more",
+                "Get your free sample", "Lowest prices guaranteed", "Unbelievable savings", "Order now", "Instant access",
+                "No credit card required", "Best deal online", "Act fast", "Limited time only", "Don't wait, click now"
+            ],
+            "responses": [
+                "Please do not send spam messages.",
+                "Let's keep the conversation relevant.",
+                "Spam is not permitted here.",
+                "Sending unsolicited commercial messages (spam) is prohibited under Section 66A of the IT Act and can lead to legal action."
+            ]
+        }
+    ]
+}
